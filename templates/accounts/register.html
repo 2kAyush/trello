@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Register</title>
+        {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/register.css' %}">
+    </head>
+
+    <body>
+        <center>
+            <div class="main">
+                <h1 class="sign">Register</h1>
+                <form class="form1" action="" method="POST">
+                {% csrf_token %}
+                {% comment %} {{form.as_p}} {% endcomment %}
+                <p class="un">Username {{form.username}}</p>
+                <p class="pass">Password {{form.password1}}</p>
+                <p class="pass2">Confirm Password {{form.password2}}</p>
+                <p class="email"> Email{{form.email}}</p>
+                <input class="submit" type="submit" value="Register"/>
+                </form>
+
+                <p class="user_already"> Already a User?<a href="{% url 'login'%}"> Click Here</a></p>
+            </div>    
+        </center>
+    </body>
+</html>

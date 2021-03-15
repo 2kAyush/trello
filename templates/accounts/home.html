@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> ToDo App</title>
+    </head>
+
+    <body>
+        <h1>Welcome to ToDo App</h1>
+        {% if user.is_authenticated %}
+            <p><a href="{%url 'logout'%}"> Logout</a></p>
+        {% else %}
+            <p><a href="{%url 'login'%}" > Login</a></p>
+        {% endif %}
+        <p><a href="{%url 'register'%}" > Register</a></p>
+    </body>
+</html>

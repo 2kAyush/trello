@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> DashBoard</title>
+        {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/dashboard.css' %}">
+    </head>
+
+    <body>
+        <center><h1>Welcome {{request.user}} </h1></center>
+        
+        <h2 class="h2_log"><a class="l_out" href="{%url 'logout'%}"> Logout</a></h2>
+        
+        <h2> All Task Lists: </h2>
+
+        <ul>
+            {% for task_list in task_lists %}
+
+            <li class="t_lis"> {{task_list.name}} </li>
+        
+            {% endfor %}
+        </ul>
+        
+        <h3 style="color:deepskyblue;box-shadow:deepskyblue"> <a href="{%url 'addtasklist2'%}"> Add a task list</a> </h3>
+
+        <h2>All Tasks:</h2>
+
+        <ul>
+            {% for task in tasks %}
+
+            <li class="task"> {{task.content}} </li>
+
+            {% endfor %}
+        
+        </ul>
+
+        <h3 style="color:deepskyblue;box-shadow:deepskyblue"> <a href="{%url 'add_task'%}"> Add a task</a> </h3>
+
+    </body>
+</html>
